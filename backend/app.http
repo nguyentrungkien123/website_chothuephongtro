@@ -1,0 +1,44 @@
+POST http://localhost:5000/api/v1/auth/register
+Content-Type: application/json
+
+{
+    "name":"nguyentrungkien",
+    "phone":"0336099317",
+    "password":"210426"
+}
+
+###
+POST http://localhost:5000/api/v1/auth/login
+Content-Type: application/json
+
+{
+    "phone":"0902409808",
+    "password":"123456"
+}
+
+###
+POST http://localhost:5000/api/v1/insert/
+
+###
+GET http://localhost:5000/api/v1/user/
+
+
+####
+GET http://localhost:5000/api/v1/category/all
+
+
+### 
+GET http://localhost:5000/api/v1/post/all
+
+###
+GET http://localhost:5000/api/v1/post/limit?page=2
+
+
+###
+GET http://localhost:5000/api/v1/user/get-current
+Content-Type: application/json
+
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQxZWIwYWE1LWVjODctNDJmYy05ODgzLTA2YzZjNGUzNGQzMyIsInBob25lIjoiMDMzNjA5OTMxNyIsImlhdCI6MTcxNDc5NzU1OCwiZXhwIjoxNzE0OTcwMzU4fQ.j11Bheu7kOQCgAdsnNEdfQP7-EUDjMxJ8JM1E_BIAE0
+
+###
+GET http://localhost:5000/api/v1/price/all
