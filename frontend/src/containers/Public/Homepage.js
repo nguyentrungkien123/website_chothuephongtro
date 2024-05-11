@@ -13,10 +13,11 @@ import * as actions from "../../store/actions"
 // VIDEO 16 .....
 const Homepage = () => {
   const [params] = useSearchParams()
-  const { categories,prices} = useSelector(state => state.app)
+  const { categories,prices,areas} = useSelector(state => state.app)
   const dispatch = useDispatch();
   useEffect(()=>{
      dispatch(actions.getPrices())
+     dispatch(actions.getAreas())
   },[])
   console.log(prices)
   return (
@@ -33,8 +34,8 @@ const Homepage = () => {
         </div>
         <div className="w-[30%] border border-green-500 flex flex-col gap-4 justify-start items-center">
           <ItemSidebar content={categories} title={'Danh sách cho thuê'}/>
-          <ItemSidebar content={prices} title={'Xem theo giá'}/>
-          <ItemSidebar title={'Xem theo diện tích'}/>
+          <ItemSidebar isDouble={true} content={prices} title={'Xem theo giá'}/>
+          <ItemSidebar isDouble={true} content={areas} title={'Xem theo diện tích'}/>
         </div>
       </div>
     </div>

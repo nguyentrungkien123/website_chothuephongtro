@@ -42,3 +42,6 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQxZWIwYWE1LWVjODct
 
 ###
 GET http://localhost:5000/api/v1/price/all
+
+###
+GET http://localhost:5000/api/v1/area/all
