@@ -1,20 +1,33 @@
 import React, { useEffect, useState } from "react";
 import PageNumber from "./PageNumber";
 import { useSelector } from "react-redux";
+import { useSearchParams } from "react-router-dom";
 
-const Pagination = ({ page }) => {
+const Pagination = () => {
   const { count, posts } = useSelector((state) => state.post);
 
   const [arrPage, setArrPage] = useState([]);
 
-  const [currentPage, setCurrentPage] = useState(+page || 1);
+  const [currentPage, setCurrentPage] = useState(1);
 
   const [isHideEnd, setIsHideEnd] = useState(false);
 
   const [isHideStart, setIsHideStart] = useState(false);
+ 
+  const [searchParams] = useSearchParams();
+
+
+   useEffect(()=>{
+      let page = searchParams.get('page');
+      page && +page !== currentPage && setCurrentPage(+page);
+      !page && setCurrentPage(1)
+
+
+   },[searchParams])
+
 
   useEffect(() => {
-    let max = Math.floor(count / posts.length);
+    let max = Math.floor(count / process.env.REACT_APP_LIMIT_POSTS);
     let end = currentPage + 1 > max ? max : currentPage + 1;
     let start = currentPage - 1 <= 0 ? 1 : currentPage - 1;
 

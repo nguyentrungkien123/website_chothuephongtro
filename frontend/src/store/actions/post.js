@@ -23,9 +23,9 @@ export const getPosts = () => async (dispatch) => {
   }
 };
 
-export const getPostsLimit = (page) => async (dispatch) => {
+export const getPostsLimit = (payload) => async (dispatch) => {
   try {
-    const response = await apiGetPostsLimit(page);
+    const response = await apiGetPostsLimit(payload);
     if (response?.data.err === 0) {
       dispatch({
         type: actionTypes.GET_POST_LIMIT,

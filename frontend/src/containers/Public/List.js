@@ -3,14 +3,24 @@ import { Button, Item } from "../../components";
 import { getPosts, getPostsLimit } from "../../store/actions/post";
 import { useDispatch, useSelector } from "react-redux";
 import Pagination from "./Pagination";
+import { useSearchParams } from "react-router-dom";
 
-const List = ({page}) => {
+const List = () => {
   const dispatch = useDispatch();
+  // const [params] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const { posts } = useSelector((state) => state.post);
   useEffect(() => {
-    let offset = page ? +page - 1 : 0
-    dispatch(getPostsLimit(offset));
-  }, [page]);
+    let params = []
+    for(let entry of searchParams.entries()){
+      params.push(entry)
+    }
+    let searchParamObject = {}
+    params?.map(i=>{
+      searchParamObject = {...searchParamObject,[i[0]]:i[1]}
+    })
+    dispatch(getPostsLimit(searchParamObject));
+  }, [searchParams]);
   return (
     <div className="w-full border bg-white shadow-md rounded-md">
       <div className="flex items-center justify-between p-2">

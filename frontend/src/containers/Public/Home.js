@@ -7,6 +7,8 @@ import { useSelector,useDispatch } from 'react-redux';
 
 import * as actions from "../../store/actions";
 
+import { Intro,Contact } from "../../components"
+
 const Home = () => {
   const dispatch = useDispatch();
   const {isLoggedIn} = useSelector(state => state.auth)
@@ -18,12 +20,17 @@ const Home = () => {
   },[isLoggedIn])
   
   return (
-    <div className='w-full flex flex-col items-center m-auto h-full'>
+    <div className='w-full flex gap-6 flex-col items-center m-auto h-full'>
       <Header />
          <Navigation/>
          {isLoggedIn && <Search/>}
       <div className='md:w-4/5 lg:w-4/5 flex flex-col items-start justify-start mt-3'>
          <Outlet />
+      </div>
+      <Intro/>
+      <Contact/>
+      <div className='h-[500px]'>
+
       </div>
     </div>
   )

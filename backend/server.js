@@ -4,16 +4,15 @@ const app = express();
 require("dotenv").config();
 import initRoutes from "./src/routers";
 require("./src/config/connectdatabase");
-import { getNumberFromString } from "./src/utils/common";
-
-console.log(getNumberFromString('jdsahgcjsdgc6 dskhfdj3'));
-
+// giúp server đọc dữ liệu từ client dạng form body
 app.use(
   express.urlencoded({
     extended: true,
   })
 );
+// server chuyển các dạng dữ liệu về json
 app.use(express.json());
+// giúp kết nối server với client thông qua cổng kết nối,với các phương thức
 app.use(
   cors({
     origin: process.env.CLIENT_URL,
@@ -21,6 +20,7 @@ app.use(
   })
 );
 
+// cổng router ,tạo các api cho client
 initRoutes(app);
 
 const PORT = process.env.PORT || 8080;

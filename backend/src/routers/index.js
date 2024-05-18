@@ -14,9 +14,7 @@ const initRoute = (app) => {
   app.use("/api/v1/category", categoryRote);
   app.use("/api/v1/price", usePrices);
   app.use("/api/v1/area", useAreas);
-  app.use("/", (req, res, next) => {
-    res.send("Hello Word!");
-  });
+  
 };
 
 module.exports = initRoute;
