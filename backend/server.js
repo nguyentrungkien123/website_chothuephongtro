@@ -4,6 +4,8 @@ const app = express();
 require("dotenv").config();
 import initRoutes from "./src/routers";
 require("./src/config/connectdatabase");
+
+
 // giúp server đọc dữ liệu từ client dạng form body
 app.use(
   express.urlencoded({

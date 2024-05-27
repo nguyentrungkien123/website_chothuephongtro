@@ -45,3 +45,7 @@ GET http://localhost:5000/api/v1/price/all
 
 ###
 GET http://localhost:5000/api/v1/area/all
+
+
+###
+GET http://localhost:5000/api/v1/post/new-post

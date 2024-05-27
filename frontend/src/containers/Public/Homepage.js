@@ -7,7 +7,7 @@ import Province from "../../components/Province";
 import List from "./List";
 import Pagination from "./Pagination";
 // import { useSearchParams } from "react-router-dom";
-import { ItemSidebar } from "../../components";
+import { ItemSidebar,RelatedPost } from "../../components";
 import { useSelector,useDispatch } from "react-redux";
 import * as actions from "../../store/actions"
 // VIDEO 16 .....
@@ -36,6 +36,7 @@ const Homepage = () => {
           <ItemSidebar content={categories} title={'Danh sách cho thuê'}/>
           <ItemSidebar isDouble={true} type='priceCode' content={prices} title={'Xem theo giá'}/>
           <ItemSidebar isDouble={true} type='areaCode' content={areas} title={'Xem theo diện tích'}/>
+          <RelatedPost/>
         </div>
       </div>
     </div>

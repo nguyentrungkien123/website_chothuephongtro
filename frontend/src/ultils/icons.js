@@ -9,6 +9,11 @@ import { GoStarFill } from "react-icons/go";
 import { IoMdHeart } from "react-icons/io";
 import { BsFillBookmarkStarFill } from "react-icons/bs";
 import { SlArrowRight } from "react-icons/sl";
+import { MdOutlineWatchLater } from "react-icons/md";
+import { CiHashtag } from "react-icons/ci";
+import { GoDotFill } from "react-icons/go";
+import { FaPhone } from "react-icons/fa6";
+import { SiZalo } from "react-icons/si";
 
 const icons = {
   CiCirclePlus,
@@ -22,7 +27,12 @@ const icons = {
   CiHeart,
   IoMdHeart,
   BsFillBookmarkStarFill,
-  SlArrowRight
+  SlArrowRight,
+  MdOutlineWatchLater,
+  CiHashtag,
+  GoDotFill,
+  FaPhone,
+  SiZalo
 };
 
 export default icons;

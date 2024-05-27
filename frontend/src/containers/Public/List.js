@@ -5,7 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import Pagination from "./Pagination";
 import { useSearchParams } from "react-router-dom";
 
-const List = () => {
+const List = ({categoryCode}) => {
+  console.log(categoryCode)
   const dispatch = useDispatch();
   // const [params] = useSearchParams();
   const [searchParams] = useSearchParams();
@@ -19,8 +20,10 @@ const List = () => {
     params?.map(i=>{
       searchParamObject = {...searchParamObject,[i[0]]:i[1]}
     })
+    if(categoryCode)  searchParamObject.categoryCode = categoryCode
+    console.log(searchParamObject)
     dispatch(getPostsLimit(searchParamObject));
-  }, [searchParams]);
+  }, [searchParams,categoryCode]);
   return (
     <div className="w-full border bg-white shadow-md rounded-md">
       <div className="flex items-center justify-between p-2">

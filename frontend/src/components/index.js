@@ -7,3 +7,7 @@ export { default as Item} from "./Item";
 export { default as ItemSidebar} from "./ItemSidebar";
 export { default as Intro} from "./Intro";
 export { default as Contact} from "./Contact";
+export { default as Slider} from "./Slider";
+export { default as BoxInfo} from "./BoxInfo";
+export { default as RelatedPost} from "./RelatedPost";
+export { default as Sitem} from "./Sitem";

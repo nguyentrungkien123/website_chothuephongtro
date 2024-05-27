@@ -1,8 +1,8 @@
 import React, { memo, useState } from "react";
 import icons from "../ultils/icons";
-import { useNavigate,Link } from "react-router-dom";
-import {formatVietnameseToString} from "../ultils/Common/formatVietnameseToString";
-
+import { useNavigate, Link } from "react-router-dom";
+import { formatVietnameseToString } from "../ultils/Common/formatVietnameseToString";
+import { path } from "../ultils/constant";
 // const images = [
 //   "https://pt123.cdn.static123.com/images/thumbs/900x600/fit/2024/04/06/anh-3_1712411342.jpg",
 //   "https://pt123.cdn.static123.com/images/thumbs/900x600/fit/2024/04/06/anh-tong-the_1712411279.jpg",
@@ -21,22 +21,27 @@ const Item = ({
   star,
   user,
   title,
-  id
+  id,
 }) => {
-  const addressLength = address.split(',').length
+  const addressLength = address.split(",").length;
   const [isHoverHeart, setIsHoverHeart] = useState(false);
   const navigate = useNavigate();
   const handleStar = (star) => {
-    let stars = []
-    for(let i = 1;i<=+star;i++){
-       stars.push(<GoStarFill className="star-item" size={20} color="yellow" />)
+    let stars = [];
+    for (let i = 1; i <= +star; i++) {
+      stars.push(<GoStarFill className="star-item" size={20} color="yellow" />);
     }
-    return stars
-  }
+    return stars;
+  };
   // console.log(handleStar(5))
   return (
     <div className="w-full flex border-t border-orange-600 p-2">
-      <Link to={`chi-tiet/${formatVietnameseToString(title)}/${id}`} className="w-2/5 flex gap-[2px] flex-wrap items-center relative cursor-pointer">
+      <Link
+        to={`${path.DETAIL}${formatVietnameseToString(
+          title?.replaceAll("/", "")
+        )}/${id}`}
+        className="w-2/5 flex gap-[2px] flex-wrap items-center relative cursor-pointer"
+      >
         <img
           src={images[0]}
           alt="preview"
@@ -67,14 +72,15 @@ const Item = ({
 
       <div className="w-3/5 px-2">
         <div className="flex items-star justify-between w-full">
-          <div className="text-red-500 font-medium">
-            {handleStar(+star).length > 0 && handleStar(+star).map((star,number)=>{
-              return (
-                <span key={number}>{star}</span>
-              )
-            })}
+          <Link to={`${path.DETAIL}${formatVietnameseToString(
+          title?.replaceAll("/", "")
+        )}/${id}`} className="text-red-500 font-medium">
+            {handleStar(+star).length > 0 &&
+              handleStar(+star).map((star, number) => {
+                return <span key={number}>{star}</span>;
+              })}
             {title}
-          </div>
+          </Link>
           <div className="w-[10%] flex justify-center">
             <BsFillBookmarkStarFill size={24} color="orange" />
           </div>
@@ -84,7 +90,9 @@ const Item = ({
             {attributes?.price}
           </span>
           <span className="flex-1">{attributes?.acreage}</span>
-          <span className="flex-3">{`${address.split(',')[addressLength-2]},${address.split(',')[addressLength-1]}`}</span>
+          <span className="flex-3">{`${address.split(",")[addressLength - 2]},${
+            address.split(",")[addressLength - 1]
+          }`}</span>
         </div>
         <p className="text-gray-500 text-[14.3px] w-full h-[100px] text-ellipsis overflow-hidden p-2">
           {description}
